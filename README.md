@@ -53,3 +53,30 @@ POST /api/sales: Registrar una venta.
 GET /api/reports/sales: Generar un reporte de ventas en JSON.
 
 GET /api/reports/sales/export: Exportar un reporte de ventas en Excel.
+
+
+DIAGRAMA ERD: 
++-----------------+          +-----------------+          +-----------------+
+|     Users       |          |    Products     |          |      Sales      |
++-----------------+          +-----------------+          +-----------------+
+| id (PK)         |<-------->| id (PK)         |<-------->| id (PK)         |
+| name            |          | sku             |          | code            |
+| lastname        |          | name            |          | client_name     |
+| email           |          | unit_price      |          | client_ident... |
+| password        |          | stock           |          | client_email    |
+| role            |          +-----------------+          | total           |
++-----------------+                                       | user_id (FK)    |
+                                                          +-----------------+
+                                                                  |
+                                                                  |
+                                                                  v
+                                                          +-----------------+
+                                                          |   SaleItems     |
+                                                          +-----------------+
+                                                          | id (PK)         |
+                                                          | sale_id (FK)    |
+                                                          | product_id (FK) |
+                                                          | quantity        |
+                                                          | unit_price      |
+                                                          | subtotal        |
+                                                          +-----------------+
