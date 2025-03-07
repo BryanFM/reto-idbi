@@ -15,3 +15,41 @@ Este proyecto es una API RESTful desarrollada en Laravel para gestionar un siste
    ```bash
    git clone https://github.com/tu-usuario/reto-idbi.git
    cd reto-idbi
+
+
+## Estructura del Proyecto
+app/Models: Contiene los modelos de la aplicación (User, Product, Sale, etc.).
+
+app/Http/Controllers: Contiene los controladores de la API.
+
+database/migrations: Contiene las migraciones para crear las tablas de la base de datos.
+
+routes/api.php: Define las rutas de la API.
+
+
+##Endpoints de la API
+
+Autenticación
+POST /api/register: Registro de usuarios.
+
+POST /api/login: Inicio de sesión (genera un token).
+
+POST /api/logout: Cierre de sesión (invalida el token).
+
+Productos
+GET /api/products: Listar todos los productos.
+
+POST /api/products: Crear un producto (solo admin y seller).
+
+GET /api/products/{id}: Mostrar un producto específico.
+
+PUT /api/products/{id}: Actualizar un producto (solo admin y seller).
+
+DELETE /api/products/{id}: Eliminar un producto (solo admin y seller).
+
+Ventas
+POST /api/sales: Registrar una venta.
+
+GET /api/reports/sales: Generar un reporte de ventas en JSON.
+
+GET /api/reports/sales/export: Exportar un reporte de ventas en Excel.
